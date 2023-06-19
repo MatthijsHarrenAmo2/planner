@@ -27,7 +27,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Lijst van bedrijven</h1><br>
+        <h1>Lijst van bedrijven test</h1><br>
         <h1>Vroeg toe</h1>
         <a href="{{ url('/newworkspace') }}">
         <button class="btn btn-success">Voeg bedrijf toe</button></a>
