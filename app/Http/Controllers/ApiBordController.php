@@ -63,8 +63,9 @@ class ApiBordController extends Controller
         return view('workspace', ['bord' => $bord, 'workspaces' => $workspace]);
     }
     public function bordUp(Bords $bord){
+        $id = $bord['workspaceid'];
         $bord1 = Bords::where('positie',$bord['positie']-1)->get()[0];
-        $newpos = $bord1['positie'];
+        $newpos = $bord1['positie'];    
         $newpos1 = $bord['positie'];
         $bord1->update([
             'naam' => $bord1['naam'],
@@ -76,14 +77,15 @@ class ApiBordController extends Controller
             'beschrijving' => $bord['beschrijving'],
             'positie' => $newpos
         ]);
-        $bord = Bords::all();
-        $bord = $bord->sortBy('positie');
-        dd($bord);
+        $bord = Bords::where('workspaceid',$id)->get();
+        $bord = $bord->sortBy('positie'); 
+
         $id = $bord[0]['workspaceid'];
         $workspace = Workspaces::find($id);
         return view('workspace', ['bord' => $bord, 'workspaces' => $workspace]);
     }
     public function bordDown(Bords $bord){
+        $id = $bord['workspaceid'];
         $bord1 = Bords::where('positie',$bord['positie']+1)->get()[0];
         $newpos = $bord1['positie'];
         $newpos1 = $bord['positie'];
@@ -97,7 +99,7 @@ class ApiBordController extends Controller
             'beschrijving' => $bord['beschrijving'],
             'positie' => $newpos
         ]);
-        $bord = Bords::all();
+        $bord = Bords::where('workspaceid',$id)->get();
         $bord = $bord->sortBy('positie');
         $id = $bord[0]['workspaceid'];
         $workspace = Workspaces::find($id);

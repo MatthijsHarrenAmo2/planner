@@ -97,6 +97,7 @@ class ApiListController extends Controller
         return view('bord', ['list' => $list, 'bord' => $bord]);
     }
     public function ListUp(Lists $list){
+        $id = $list['bordid'];
         $list1 = Lists::where('positie',$list['positie']-1)->get()[0];
         $newpos = $list1['positie'];
         $newpos1 = $list['positie'];
@@ -110,7 +111,7 @@ class ApiListController extends Controller
             'beschrijving' => $list['beschrijving'],
             'positie' => $newpos
         ]);
-        $list = Lists::all();
+        $list = Lists::where('bordid',$id)->get();
         $list = $list->sortBy('positie');
         $id = $list[0]['bordid'];
         $bord = Bords::find($id);
@@ -119,6 +120,7 @@ class ApiListController extends Controller
         return view('bord', ['list' => $list, 'bord' => $bord, 'workspace' => $workspace]);
     }
     public function ListDown(Lists $list){
+        $id = $list['bordid'];
         $list1 = Lists::where('positie',$list['positie']+1)->get()[0];
         $newpos = $list1['positie'];
         $newpos1 = $list['positie'];
@@ -132,7 +134,7 @@ class ApiListController extends Controller
             'beschrijving' => $list['beschrijving'],
             'positie' => $newpos
         ]);
-        $list = Lists::all();
+        $list = Lists::where('bordid',$id)->get();
         $list = $list->sortBy('positie');
         $id = $list[0]['bordid'];
         $bord = Bords::find($id);

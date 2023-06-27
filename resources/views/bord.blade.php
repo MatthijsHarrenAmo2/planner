@@ -42,6 +42,7 @@
         <tr>
             <th>Naam</th>
             <th>Beschrijving</th>
+            <th>Locatie</th>
             <th>open pagina</th>
             <th>edit</th>
             <th width="280px">Action</th>
