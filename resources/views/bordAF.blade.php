@@ -51,8 +51,65 @@
         <tr class="bg-success">
             <td>{{ $item->naam }}</td>
             <td>{{ $item->beschrijving }}</td>
+            <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
             <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
             <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
+            <td>
+                
+                
+                <form action="{{ url('api/list/'.$item['id']) }}" method="post">
+                    {{ method_field('delete') }} 
+                    {{ csrf_field() }}
+                    
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @elseif($item->status == 1)
+        <tr class="bg-warning">
+            <td>{{ $item->naam }}</td>
+            <td>{{ $item->beschrijving }}</td>
+            <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
+            <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
+            <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
+            <td>
+                
+                
+                <form action="{{ url('api/list/'.$item['id']) }}" method="post">
+                    {{ method_field('delete') }} 
+                    {{ csrf_field() }}
+                    
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @elseif($item->status == 0)
+        <tr>
+            <td>{{ $item->naam }}</td>
+            <td>{{ $item->beschrijving }}</td>
+            <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
+            <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
+            <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
+            <td>
+                
+                
+                <form action="{{ url('api/list/'.$item['id']) }}" method="post">
+                    {{ method_field('delete') }} 
+                    {{ csrf_field() }}
+                    
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @else 
+        <tr>
+            <td>{{ $item->naam }}</td>
+            <td>{{ $item->beschrijving }}</td>
+            <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
+            <td><a class="btn btn-primary" href="{{ url('edit/'.$item['id']) }}">Edit</a></td>
             <td>
                 
                 

@@ -37,7 +37,7 @@
 
         <h1>Vroeg toe</h1>
         <a href="{{ url('/newlist/'.$bord['id']) }}">
-        <button class="btn btn-success">Add</button></a> 
+        <button class="btn btn-success">Add</button></a>  
         <table class="table table-bordered">
         <tr>
             <th>Naam</th>

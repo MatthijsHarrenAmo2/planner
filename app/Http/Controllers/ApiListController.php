@@ -25,24 +25,21 @@ class ApiListController extends Controller
         $id = (int)$id;
         $bord = Bords::find($id); 
         $workspace = Workspaces::find($bord['workspaceid']);
-        $list = Lists::where('bordid', $id)->get();
-        $list = $list->sortBy('positie');
+        $list = Lists::where('bordid', $id)->orderByRaw("FIELD(status, '1','0','2') asc")->get();
         return view('bordWIP')->with('list', $list)->with('bord', $bord)->with('workspace', $workspace); 
     }
     public function ShowNNB(Lists $list, $id) {
         $id = (int)$id;
         $bord = Bords::find($id); 
         $workspace = Workspaces::find($bord['workspaceid']);
-        $list = Lists::where('bordid', $id)->get();
-        $list = $list->sortBy('positie');
+        $list = Lists::where('bordid', $id)->orderByRaw("FIELD(status, '','1','2') asc")->get();
         return view('bordNNB')->with('list', $list)->with('bord', $bord)->with('workspace', $workspace); 
     }
     public function ShowAF(Lists $list, $id) {
         $id = (int)$id;
         $bord = Bords::find($id); 
         $workspace = Workspaces::find($bord['workspaceid']);
-        $list = Lists::where('bordid', $id)->get();
-        $list = $list->sortBy('positie');
+        $list = Lists::where('bordid', $id)->orderByRaw("FIELD(status, '2','1','0') asc")->get();
         return view('bordAF')->with('list', $list)->with('bord', $bord)->with('workspace', $workspace); 
     }
     public function ShowSingle($id) { 
