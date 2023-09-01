@@ -29,6 +29,7 @@ use App\Http\Controllers\ApiUserWorkspaceController;
 |
 */
 Route::get('/newworkspace', function() {return view('newworkspace');});
+Route::get('/newpakket', function() {return view('newpakket');});
 Route::get('/loadworkspace/{page}', [ApiWorkspaceController::class, 'LoadUpdate']);
 Route::get('/workspaceup/{page}', [ApiWorkspaceController::class, '']);;
 

@@ -30,6 +30,9 @@ class ApiWorkspaceController extends Controller
         return view('workspace', ['workspaces' => $workspaces]);
     }
 
+    public function StorePakket(Request $request) {
+        
+    }
     public function Store(Request $request) {
         $findpos = Workspaces::max('positie');
 

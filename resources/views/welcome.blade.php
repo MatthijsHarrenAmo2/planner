@@ -31,6 +31,8 @@
         <h1>Vroeg toe</h1>
         <a href="{{ url('/newworkspace') }}">
         <button class="btn btn-success">Voeg bedrijf toe</button></a>
+        <a href="{{ url('/newpakket') }}">
+        <button class="btn btn-success">Voeg pakket toe</button></a>
         <table class="table table-bordered">
         <tr>
             <th>Naam</th>

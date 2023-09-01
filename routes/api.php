@@ -43,6 +43,7 @@ Route::post('/users', [ApiUsersController::class, 'Store']);
 Route::put('/users/{users}', [ApiUsersController::class, 'Update']);
 Route::delete('/users/{users}', [ApiUsersController::class, 'Delete']);
 
+Route::post('/pakket', [ApiWorkspaceController::class, 'StorePakket']);
 
 Route::get('/workspace', [ApiWorkspaceController::class, 'Show']);
 Route::get('/workspace/{workspace}', [ApiWorkspaceController::class, 'Show']);
