@@ -16,7 +16,7 @@
                     <select name="beschrijving" id="beschrijving">
                         <option value="" disabled selected>Kies pakket</option>
                         @foreach ($pakket as $pakket)
-                            <option value="{{ $pakket }}">{{ $pakket->pakket }}</option>
+                            <option value="{{ $pakket->pakket }}">{{ $pakket->pakket }}</option>
                         @endforeach
                     </select>
                 </div>

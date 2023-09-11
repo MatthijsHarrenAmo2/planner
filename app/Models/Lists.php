@@ -15,6 +15,7 @@ class Lists extends Model
       'naam' => 'naam',
       'beschrijving	' => 'beschrijving',
       'positie' => 'positie',
-      'status' => 'status'
+      'status' => 'status',
+      'eindtijd' => 'eindtijd'
     ]; 
 }

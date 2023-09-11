@@ -44,6 +44,7 @@ Route::get('/', [ApiWorkspaceController::class, 'ShowAll']);
 // Route::get('/workspace/{page}', [ApiBordController::class, 'Show']);
 Route::get('/workspace/{page}', [ApiWorkspaceController::class, 'ShowName']);
 Route::get('/bord/{page}', [ApiListController::class, 'Show']);
+Route::get('/bordED/{bord}', [ApiListController::class, 'ShowED']);
 Route::get('/bordNNB/{bord}', [ApiListController::class, 'ShowNNB']);
 Route::get('/bordWIP/{bord}', [ApiListController::class, 'ShowWIP']);
 Route::get('/bordAF/{bord}', [ApiListController::class, 'ShowAF']);

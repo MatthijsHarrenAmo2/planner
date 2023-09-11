@@ -38,10 +38,11 @@
         <table class="table table-bordered">
         <tr>
             <th>Naam</th>
-            <th>Beschrijving</th>
+            <th>beschrijving</th>
+            <th>plek wisselen</th>
             <th>open pagina</th>
             <th>edit</th>
-            <th width="280px">Action</th>
+            <th width="280px">Delete</th>
         </tr>
         @foreach ($bord as $item)
         <tr>

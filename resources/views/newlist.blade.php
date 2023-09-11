@@ -13,11 +13,17 @@
                     <strong>Naam:</strong>
                     <input type="text" name="naam" class="form-control" placeholder="Naam"><br><br>
                 </div>
-            </div>
+            </div> 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>beschrijving</strong><br>
                     <textarea class="form-control" style="height:150px" name="beschrijving" placeholder="beschrijving"></textarea><br><br>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>geplande eindtijd</strong><br>
+                    <input type='date' name='eindtijd'></input><br><br>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

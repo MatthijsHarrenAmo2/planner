@@ -28,6 +28,13 @@ class ApiListController extends Controller
         $list = Lists::where('bordid', $id)->orderByRaw("FIELD(status, '1','0','2') asc")->get();
         return view('bordWIP')->with('list', $list)->with('bord', $bord)->with('workspace', $workspace); 
     }
+    public function ShowED(Lists $list, $id) {
+        $id = (int)$id;
+        $bord = Bords::find($id); 
+        $workspace = Workspaces::find($bord['workspaceid']);
+        $list = Lists::where('bordid', $id)->orderBy("eindtijd")->get();
+        return view('borded')->with('list', $list)->with('bord', $bord)->with('workspace', $workspace); 
+    }
     public function ShowNNB(Lists $list, $id) {
         $id = (int)$id;
         $bord = Bords::find($id); 
@@ -61,6 +68,7 @@ class ApiListController extends Controller
                 'bordid' => request('bordid'),
                 'naam' => request('naam'),
                 'beschrijving' => request('beschrijving'),
+                'eindtijd' => request('eindtijd'),
                 'status' => $status, 
                 'positie' => $pos
             ]);

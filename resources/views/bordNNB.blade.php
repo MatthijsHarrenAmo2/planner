@@ -26,21 +26,24 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased"> 
         <h1>{{ $bord['naam'] }}</h1><br>
         
-        <a href="{{ url('bord/'.$bord['id']) }}"><button class="btn btn-warning">Laat alles zien</button></a>
+        
+        <a href="{{ url('bordED/'.$bord['id']) }}"><button class="btn btn-warning">sorteren op einddatum</button></a>
         <a href="{{ url('bordNNB/'.$bord['id']) }}"><button class="btn btn-warning">Nog niet begonnen</button></a>
         <a href="{{ url('bordWIP/'.$bord['id']) }}"><button class="btn btn-warning">In de maak</button></a>
         <a href="{{ url('bordAF/'.$bord['id']) }}"><button class="btn btn-warning">Afgerond</button></a>
 
         <h1>Vroeg toe</h1>
         <a href="{{ url('/newlist/'.$bord['id']) }}">
-        <button class="btn btn-success">Add</button></a> 
+        <button class="btn btn-success">Add</button></a>  
         <table class="table table-bordered">
         <tr>
             <th>Naam</th>
             <th>Beschrijving</th>
+            <td>geplande eindtijd</td>
+            <th>Locatie</th>
             <th>open pagina</th>
             <th>edit</th>
             <th width="280px">Action</th>
@@ -50,6 +53,7 @@
         <tr class="bg-success">
             <td>{{ $item->naam }}</td>
             <td>{{ $item->beschrijving }}</td>
+            <td>{{ $item->eindtijd }}</td>
             <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
             <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
             <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
@@ -60,7 +64,7 @@
                     {{ method_field('delete') }} 
                     {{ csrf_field() }}
                     
-      
+       
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
@@ -69,6 +73,7 @@
         <tr class="bg-warning">
             <td>{{ $item->naam }}</td>
             <td>{{ $item->beschrijving }}</td>
+            <td>{{ $item->eindtijd }}</td>
             <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
             <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
             <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
@@ -88,6 +93,7 @@
         <tr>
             <td>{{ $item->naam }}</td>
             <td>{{ $item->beschrijving }}</td>
+            <td>{{ $item->eindtijd }}</td>
             <td><a class="btn btn-info" style="margin-right: 20px;"href="{{url('api/listup/'.$item['id'])}}">↑  </a><a class="btn btn-info" href="{{url('api/listdown/'.$item['id'])}}">  ↓  </a></td>
             <td><a class="btn btn-info" href="{{ url('list/'.$item['id']) }}">Show</a></td>
             <td><a class="btn btn-primary" href="{{ url('loadlist/'.$item['id']) }}">Edit</a></td>
