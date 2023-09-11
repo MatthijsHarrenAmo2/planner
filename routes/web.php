@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Page;
+use App\Models\Pakket;
 
 use App\Http\Controllers\HomePageController;
 
@@ -28,7 +29,7 @@ use App\Http\Controllers\ApiUserWorkspaceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/newworkspace', function() {return view('newworkspace');});
+Route::get('/newworkspace', [ApiWorkspaceController::class, 'Loadpakket']);
 Route::get('/newpakket', function() {return view('newpakket');});
 Route::get('/loadworkspace/{page}', [ApiWorkspaceController::class, 'LoadUpdate']);
 Route::get('/workspaceup/{page}', [ApiWorkspaceController::class, '']);;

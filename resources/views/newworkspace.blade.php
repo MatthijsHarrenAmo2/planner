@@ -15,9 +15,9 @@
                     <!-- <textarea class="form-control" style="height:150px" name="beschrijving" placeholder="beschrijving"></textarea> -->
                     <select name="beschrijving" id="beschrijving">
                         <option value="" disabled selected>Kies pakket</option>
-                        <option value="Basic Pakket">Basic Pakket</option>
-                        <option value="Team Pakket">Team Pakket</option>
-                        <option value="Agency Pakket">Agency Pakket</option>
+                        @foreach ($pakket as $pakket)
+                            <option value="{{ $pakket }}">{{ $pakket->pakket }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

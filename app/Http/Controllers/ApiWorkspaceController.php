@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
-use App\Models\Workspaces;
 use App\Models\Bords;
+use App\Models\Pakket;
+use App\Models\Workspaces;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -31,11 +32,20 @@ class ApiWorkspaceController extends Controller
     }
 
     public function StorePakket(Request $request) {
-        
+        $pakket = Pakket::create(
+            [
+                'pakket' => request('naam')
+            ]);
+        $workspaces = Workspaces::all();
+        return view('welcome', ['workspaces' => $workspaces]);
+    }
+    public function Loadpakket(){
+        $pakket = Pakket::all();
+        return view('newworkspace', ['pakket' => $pakket]);
     }
     public function Store(Request $request) {
         $findpos = Workspaces::max('positie');
-
+ 
         if ($findpos == NULL) {
             $pos = 1;
         } else {

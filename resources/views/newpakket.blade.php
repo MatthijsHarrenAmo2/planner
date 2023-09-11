@@ -1,4 +1,4 @@
-<form action="{{ url('api/workspace') }}" method="POST">
+<form action="{{ url('api/pakket') }}" method="POST">
         @csrf
         @method('POST')
    
